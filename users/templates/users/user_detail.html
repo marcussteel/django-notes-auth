@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <h2>Profile Page</h2>
+    {% if userdata.profile_pic %}
+        <img src="{{userdata.profile_pic.url}}" class="img-responsive" style="width: 100px; float: left; margin-right: 10px;"/>
+    {% endif %}
+    <h3>This is {{userdata.user.username}}'s detail Page </h3>
+    <h5>Name :{{userdata.first_name}} </h5>
+    <h5>Last Name :{{userdata.last_name}} </h5>
+    <h5>Portfolio :{{userdata.portfolio}} </h5>
+    <h5>Bio :{{userdata.bio}} </h5>
+
+    
+    {% if userdata.id == user.id %}
+        <button type="submit" class='btn btn-dark me-2'>  <a class='text-decoration-none ' href=" {%url 'detail' userdata.id %}">Update</a> </button>
+    {% endif %}
+        
+
+    {% comment %} <button type="submit" class='btn btn-danger me-2'>  <a class='text-decoration-none ' href=" {% url 'todoapp:delete' user.id %}">Delete</a> </button> {% endcomment %}
+    {% comment %} <button type="submit" class='btn btn-primary'>  <a class='text-decoration-none text-light' href=" {% url 'home'%}">Home</a> </button>  {% endcomment %}
+{% endblock content %}
