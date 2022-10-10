@@ -1,0 +1,9 @@
+py -m venv env
+.\env\Scripts\activate
+pip install django
+pip install python-decouple
+python -m pip install pillow
+pip install django-bootstrap5
+pip freeze > requirements.txt 
+python -m django startproject main .
+python manage.py startapp todo
